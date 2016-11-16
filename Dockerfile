@@ -4,6 +4,8 @@ COPY . /usr/share/nginx/html
 
 EXPOSE 80
 
-ENTRYPOINT main.html
+CMD ["nginx", "-g", "daemon off;"]
+
+# ENTRYPOINT /usr/share/nginx/html/main.html
 
 # CMD sed -i "s/ContainerID: /ContainerID: "$(hostname)"/g" /usr/share/nginx/html/index.html && nginx -g "daemon off;"
