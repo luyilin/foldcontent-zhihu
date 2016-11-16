@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用 jquery 实现知乎收起答案功能</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+	<ul class="wrap">
+		<li>
+			<div class="content all-content" style="display: none;">
+				<h2>Sheldon 座位理论</h2>
+				<p>In the winter that seat is close enough to the radiator to remain warm and yet not so close as to cause perspiration. In the summer it's directly in the path of a cross breeze created by opening windows there, and there. 
+				It faces the television at an angle that is neither direct, thus discouraging conversation, 
+				nor so far wide to create a parallax distortion. I could go on,
+				but ... I think I've made my point.</p>
+				<p>冬季的时候，这个地方离电暖器很近、最暖和，但是又不会近到让你感觉热、流汗；夏天的时候，这里又可以吹由那两扇窗户吹进来的徐徐微风；
+				坐这的角度可以让我同时看电视又同时和他人聊天而不受影响，恰好不会太远也不会产生视觉上的错觉。</p>
+				<p>That is my spot. In an ever-changing world it is a simple point of consistency.
+			    If my life were expressed as a function in a four-dimensional Cartesian coordinate system,
+			    that spot, at the moment I first sat on it, would be 0000.</p>
+			    <p>那是我的专座。在这个不断变化的世界里，这是不变的一点。假设我的生命用一个建立在四维直角坐标系里的方程来表示的话，
+			    这个座位从我坐上那一刻开始就成为了(0,0,0,0)。</p>
+			</div>
+			<div class="content part-content">In the winter that seat is close enough to the radiator to remain warm and yet not so close as to cause perspiration. In the summer<b> ...</b></div>
+	    	<div class="sign unfold">展开</div>
+	        <div class="sign fold" style="display:none;">收起</div>
+	        <div class="sign fold-fix" style="display: none;">收起</div>
+    	</li>
+    	<li>
+    		<div class="content all-content" style="display: none;">
+    			<h2>Howard 的真情告白</h2>
+				<p>All right. Well, could you at least give her a message？
+				Tell her I'm really sorry. And if she doesn't want to marry me , I get it.
+				But what I really want her to know is the guy that she's disgusted by, is the guy that I'm disgusted by, too.
+				But that guy doesn't exist anymore; he's gone.
+				And the reason is because of her. 
+				So, if this relationship is over, 
+				let her know that she made me a better man, and tell her thank you.</p>
+				<p>好吧，能请你至少帮我转告她吗？告诉她我真的很抱歉。
+				如果她不想嫁给我了，我能理解。但我真的想让她明白，
+				她所厌恶的那个我也是我所厌恶的，但那个人已经不存在了。正是因为她，我才改过自新。如果她要跟我分手，请转告她，是她让我成为更好的男人，帮我谢谢她。</p>
+    		</div>
+    		<div class="content part-content">All right. Well, could you at least give her a message？
+				Tell her I'm really sorry.And if she doesn't want to marry me , I get it. But what I really<b> ...</b></div>
+    		<div class="sign unfold">展开</div>
+        	<div class="sign fold" style="display:none;">收起</div>
+        	<div class="sign fold-fix" style="display: none;">收起</div>
+		</li>
+	</ul>
+	<script src= "http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
