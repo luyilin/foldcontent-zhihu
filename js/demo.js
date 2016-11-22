@@ -8,6 +8,8 @@ define(['jquery'], function() {
             if (unfold.text() !== '收起') {
                 unfold.text('收起').siblings('.part-content').hide().siblings('.all-content').show();
                 win.on('scroll', function () {
+                    // document 对象是 window 对象的一个属性, 是显示于窗口内的一个文档,可以用 window.document 属性访问
+                    // window 是一个顶层对象, 是浏览器中打开的窗口
                     var panel = unfold.parent();
                     var scrollHeight = doc.scrollTop() + win.height();
                     var right = win.width() / 2 - 350 + 20 > 0 ? win.width() / 2 - 350 + 20 : 20;
@@ -32,4 +34,4 @@ define(['jquery'], function() {
         }
 
     })()
-})
+});
