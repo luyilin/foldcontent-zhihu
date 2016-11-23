@@ -21,8 +21,7 @@ define(['jquery'], function() {
                         var scrollHeight = doc.scrollTop() + win.height();
                         if (scrollHeight - panelScroll < 50 &&
                             panel.offset().top - scrollHeight < -90 && unfold.text() !== '展开') {
-                            unfold.addClass('fold-fix');
-                            unfold.css('right', right);
+                            unfold.addClass('fold-fix').css('right', right);
                         } else {
                             changeStyle(unfold);
                         }
@@ -52,9 +51,9 @@ define(['jquery'], function() {
             }
         });
 
-        function changeStyle(a) {
-            a.removeClass('fold-fix');
-            a.css('right', '20px');
+        function changeStyle(i) {
+            i.removeClass('fold-fix');
+            i.css('right', '20px');
         }
 
     })()
