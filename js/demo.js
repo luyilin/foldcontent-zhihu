@@ -9,7 +9,6 @@ define(['jquery'], function() {
                 unfold.text('收起').siblings('.part-content').hide().siblings('.all-content').show();
                 var panel = unfold.parent();
                 var right = win.width() / 2 - 350 + 20 > 0 ? win.width() / 2 - 350 + 20 : 20;
-                var panelScroll = panel.offset().top + panel.height();
                 // scroll 事件性能优化
                 // 鼠标滚动时 scroll 事件触发的间隔大约为 10~20 ms, 相对于其他的鼠标、键盘事件,它被触发的频率很高,间隔很近。
                 // 如果 scroll 事件涉及大量的位置计算、元素重绘等工作,且这些工作无法在下个 scroll 事件触发前完成,就会导致浏览器掉帧
@@ -18,6 +17,7 @@ define(['jquery'], function() {
                 // 存在 bug : 当以很快的速度滚动时,有可能执行不到 scroll 绑定的事件
                 var cb = {
                     onscroll: function() {
+                        var panelScroll = panel.offset().top + panel.height();
                         var scrollHeight = doc.scrollTop() + win.height();
                         if (scrollHeight - panelScroll < 50 &&
                             panel.offset().top - scrollHeight < -90 && unfold.text() !== '展开') {
@@ -33,6 +33,17 @@ define(['jquery'], function() {
                     }
                 };
                 win.on("scroll", cb.onscroll);
+                // win.on('scroll', function () {
+                //     var panelScroll = panel.offset().top + panel.height();
+                //     var scrollHeight = doc.scrollTop() + win.height();
+                //     if (scrollHeight - panelScroll < 50 &&
+                //         panel.offset().top - scrollHeight < -90 && unfold.text() !== '展开') {
+                //         unfold.addClass('fold-fix');
+                //         unfold.css('right', right);
+                //     } else {
+                //         changeStyle(unfold);
+                //     }
+                // })
             } else {
                 var fold = $(this);
                 changeStyle(fold);
