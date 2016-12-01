@@ -32,6 +32,7 @@ define(['jquery'], function() {
                     }
                 };
                 win.on("scroll", cb.onscroll);
+
                 // win.on('scroll', function () {
                 //     var panelScroll = panel.offset().top + panel.height();
                 //     var scrollHeight = doc.scrollTop() + win.height();
@@ -43,6 +44,7 @@ define(['jquery'], function() {
                 //         changeStyle(unfold);
                 //     }
                 // })
+
             } else {
                 var fold = $(this);
                 changeStyle(fold);
