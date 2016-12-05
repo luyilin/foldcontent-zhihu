@@ -8,6 +8,12 @@ define(['jquery'], function() {
             if (unfold.text() !== '收起') {
                 unfold.text('收起').siblings('.part-content').hide().siblings('.all-content').show();
                 var panel = unfold.parent();
+                var panelScroll = panel.offset().top + panel.height();
+                var scrollHeight = doc.scrollTop() + win.height();
+                var right = win.width() / 2 - 350 + 20 > 20 ? win.width() / 2 - 350 + 20 : 20;
+                if (scrollHeight - panelScroll < 50) {
+                    unfold.addClass('fold-fix').css('right', right);
+                }
                 // scroll 事件性能优化
                 // 鼠标滚动时 scroll 事件触发的间隔大约为 10~20 ms, 相对于其他的鼠标、键盘事件,它被触发的频率很高,间隔很近。
                 // 如果 scroll 事件涉及大量的位置计算、元素重绘等工作,且这些工作无法在下个 scroll 事件触发前完成,就会导致浏览器掉帧
