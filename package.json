@@ -1,0 +1,39 @@
+{
+  "name": "foldcontent-zhihu",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/foldcontent.min.js",
+  "scripts": {
+    "test": "webpack",
+    "start": "webpack-dev-server --hot --progress --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luyilin/foldcontent-zhihu.git"
+  },
+  "keywords": [
+    "fold",
+    "content",
+    "button",
+    "zhihu"
+  ],
+  "author": {
+    "name": "yilin"
+  },
+  "license": "SATA",
+  "bugs": {
+    "url": "https://github.com/luyilin/foldcontent-zhihu/issues"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "css-loader": "^0.25.0",
+    "exports-loader": "^0.6.3",
+    "file-loader": "^0.9.0",
+    "postcss-loader": "^1.0.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
