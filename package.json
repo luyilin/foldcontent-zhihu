@@ -1,7 +1,7 @@
 {
   "name": "foldcontent-zhihu",
   "version": "1.0.0",
-  "description": "",
+  "description": "用 jquery 实现知乎收起答案功能",
   "main": "dist/foldcontent.min.js",
   "scripts": {
     "test": "webpack",
@@ -20,7 +20,7 @@
   "author": {
     "name": "yilin"
   },
-  "license": "SATA",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/luyilin/foldcontent-zhihu/issues"
   },
@@ -35,5 +35,6 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
-  }
+  },
+  "dependencies": {}
 }

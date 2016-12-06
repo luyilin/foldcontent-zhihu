@@ -35,7 +35,7 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loaders: ['style', 'css', 'postcss'],
+                loaders: ['style', 'css'],
             }
         ]
     },
@@ -45,11 +45,6 @@ module.exports = {
             compress: {
                 warnings: false
             }
-        })
-    ],
-    postcss: [
-        autoprefixer({
-            browsers: ['last 15 versions', '> 1%', 'ie 8', 'ie 7']
         })
     ]
 };
