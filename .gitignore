@@ -10,3 +10,4 @@
 *.rdb
 /tmp
 *.apk
+node_modules/

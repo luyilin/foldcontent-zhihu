@@ -62,6 +62,5 @@ define(['jquery'], function() {
         function changeStyle(i) {
             i.removeClass('fold-fix').css('right', '20px');
         }
-
     })()
 });
