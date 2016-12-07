@@ -25,7 +25,7 @@ $ npm install fold-content-zhihu --save
     <div class="unfold"></div><!--这是折叠按钮-->
 </div>
 <!-- ... -->
-<script src="APlayer.min.js"></script>
+<script src="foldcontent.min.js"></script>
 ```
 
 ### JS
