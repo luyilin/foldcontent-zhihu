@@ -1,6 +1,6 @@
 {
   "name": "fold-content-zhihu",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "用 jquery 实现知乎收起答案功能",
   "main": "dist/foldcontent.min.js",
   "scripts": {
