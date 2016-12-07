@@ -1,4 +1,4 @@
-# foldcontent-zhihu
+# fold-content-zhihu
 
 > 用 jquery 实现知乎收起答案功能
 
