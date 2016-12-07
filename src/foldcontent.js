@@ -10,7 +10,8 @@ require('./style.css');
             'fixBtnColor': '#fff',
             'fontSize': '12px',
             'padding': '5px',
-            'text': '展开',
+            'initialText': '展开',
+            'fixText': '收起',
             'bottom': '10px',
             'right': '20px',
             'lineHeight': '1'
@@ -20,7 +21,7 @@ require('./style.css');
     //定义方法
     FoldContent.prototype = {
         config: function () {
-            this.$element.text(this.options.text);
+            this.$element.text(this.options.initialText);
             this.$element.css({
                 'color': this.options.btnColor,
                 'fontSize': this.options.fontSize,
@@ -41,9 +42,11 @@ require('./style.css');
                 btnBg = this.options.btnBg,
                 btnPadding = Number($('.unfold').css('padding').replace('px', '')),
                 btnFontSize = Number($('.unfold').css('font-size').replace('px', '')),
-                panelWidth = Number($('.foldContentPanel').css('width').replace('px','')),
-                panelPaddingBtm = Number($('.foldContentPanel').css('padding-Bottom').replace('px', '')),
-                btnRight = Number((this.options.right).replace('px', ''));
+                panelWidth = Number($('.foldcontent-panel').css('width').replace('px','')),
+                panelPaddingBtm = Number($('.foldcontent-panel').css('padding-Bottom').replace('px', '')),
+                btnRight = Number((this.options.right).replace('px', '')),
+                initialText = this.options.initialText,
+                fixText = this.options.fixText;
             var btnBottom = panelPaddingBtm + btnPadding * 2 + btnFontSize;
             var doc = $(document);
             var win = $(window);
@@ -65,8 +68,8 @@ require('./style.css');
             }
             doc.on('click', '.unfold', function () {
                 var unfold = $(this);
-                if (unfold.text() !== '收起') {
-                    unfold.text('收起').siblings('.part-content').hide().siblings('.all-content').show();
+                if (unfold.text() !== fixText) {
+                    unfold.text(fixText).siblings('.part-content').hide().siblings('.all-content').show();
                     var panel = unfold.parent();
                     var panelScroll = panel.offset().top + panel.height();
                     var scrollHeight = doc.scrollTop() + win.height();
@@ -85,7 +88,7 @@ require('./style.css');
                             var right = (win.width() - panelWidth) / 2 + btnRight > btnRight ?
                             (win.width() - panelWidth) / 2 + btnRight : btnRight;
                             if (scrollHeight - panelScroll < btnBottom &&
-                                panel.offset().top - scrollHeight < -90 && unfold.text() !== '展开') {
+                                panel.offset().top - scrollHeight < -90 && unfold.text() !== initialText) {
                                 unfold.css({
                                     'right': right
                                 });
@@ -103,7 +106,7 @@ require('./style.css');
                     } else {
                         var fold = $(this);
                         changeStyle(fold);
-                        fold.text('展开').siblings('.part-content').show()
+                        fold.text(initialText).siblings('.part-content').show()
                             .siblings('.all-content').hide();
                     }
             });
