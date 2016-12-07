@@ -1,5 +1,5 @@
 {
-  "name": "foldcontent-zhihu",
+  "name": "fold-content-zhihu",
   "version": "1.0.0",
   "description": "用 jquery 实现知乎收起答案功能",
   "main": "dist/foldcontent.min.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/luyilin/foldcontent-zhihu.gnpmit"
+    "url": "git+https://github.com/luyilin/foldcontent-zhihu.git"
   },
   "keywords": [
     "fold",
@@ -17,9 +17,7 @@
     "button",
     "zhihu"
   ],
-  "author": {
-    "name": "yilin"
-  },
+  "author": "yilin",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/luyilin/foldcontent-zhihu/issues"
@@ -36,5 +34,6 @@
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "homepage": "https://github.com/luyilin/foldcontent-zhihu#readme"
 }

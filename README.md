@@ -10,7 +10,7 @@ demo/ 目录下是🌰
 ## Install
 
 ```
-$ npm install foldcontent-zhihu --save
+$ npm install fold-content-zhihu --save
 ```
 
 
@@ -57,8 +57,7 @@ this.defaults = {
 #### API
 
 + `foldContent.config()`                // 样式
-+ `foldContent.fontContentFunction();`  // 具体折叠方法的实现                    // Resume play
-
++ `foldContent.fontContentFunction();`  // 具体折叠方法的实现
 
 ## How to Run 
 
