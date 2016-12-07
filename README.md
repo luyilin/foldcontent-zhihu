@@ -1,4 +1,4 @@
-# fold-content-zhihu
+# foldcontent-zhihu
 
 > 用 jquery 实现知乎收起答案功能
 
@@ -11,7 +11,7 @@ demo/ 目录下是🌰
 ## Install
 
 ```
-$ npm install fold-content-zhihu --save
+$ npm install foldcontent-zhihu --save
 ```
 
 
