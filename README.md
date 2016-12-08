@@ -10,14 +10,56 @@ demo/ 目录下是🌰
 
 ## Install
 
+* 请安装3.0.2及以上版本, version1.0.0 ~ 3.0.0 经测试存在 bug (ó﹏ò｡)请已经 install 的盆友们更新一下吧
+* 至于为什么 version 跨度这么大。。我发四再也不用 --force 参数了 Σ(っ °Д °;)っ
 ```
-$ npm install foldcontent-zhihu --save
+$ npm install foldcontent-zhihu@">=3.0.2" --save
 ```
 
 
 ## Usage
 
-### HTML
+* 注意本模块正常使用需要先安装 jquery , 请认真看如下配置哦 ๑•̀⌄•́๑
+### 方法一: webpack 模块加载  
+
+#### HTML
+```HTML
+<div class="foldcontent-panel">
+    <div class="part-content"><!--此处是部分内容--></div>
+    <div class="all-content"><!--此处是全部内容--></div>
+    <div class="unfold"></div><!--这是折叠按钮-->
+</div>
+<!-- ... -->
+```
+
+#### JS
+
+```JS
+require('foldcontent-zhihu');
+$('.unfold').foldContentPlugin({ 
+   
+});
+```
+
+#### webpack
+
+```
+// webpack 全局加载 jquery 的一种方法
+resolve: {
+        alias: {
+            jquery: path.resolve(js_path, 'lib/01-jquery-1.11.3.min.js')
+        }
+},
+plugins: [ 
+        new webpack.ProvidePlugin({
+            $: 'jquery' // 将jquery暴露给所有模块，不用显式require('jquery')；只要模块的代码中出现了$，webpack就会自动将jQuery注入。
+        }),
+]
+```
+
+### 方法二: 直接通过 script 标签引入 dist/目录下的 foldcontent.min.js 文件
+
+#### HTML
 
 ```HTML
 <div class="foldcontent-panel">
@@ -26,10 +68,11 @@ $ npm install foldcontent-zhihu --save
     <div class="unfold"></div><!--这是折叠按钮-->
 </div>
 <!-- ... -->
+<script src="../js/lib/01-jquery-1.11.3.min.js"></script>
 <script src="foldcontent.min.js"></script>
 ```
 
-### JS
+#### JS
 
 ```JS
 $('.unfold').foldContentPlugin({ 
