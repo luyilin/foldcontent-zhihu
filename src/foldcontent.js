@@ -1,5 +1,5 @@
 require('./style.css');
-;(function ($, window, document, undefined) {
+;(function (window, document, undefined) {
     //定义 FoldContent 的构造函数
     var FoldContent = function (ele,opt) {
         this.$element = ele;
@@ -121,4 +121,4 @@ require('./style.css');
         foldContent.config();
         foldContent.fontContentFunction();
     }
-})(jQuery, window, document);
+})(window, document);
