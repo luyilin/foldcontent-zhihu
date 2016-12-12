@@ -10,8 +10,7 @@ demo/ 目录下是🌰
 
 ## Install
 
-* 请安装3.0.2及以上版本, version1.0.0 ~ 3.0.1 经测试存在 bug (ó﹏ò｡)请已经 install 的盆友们更新一下吧
-* 至于为什么 version 跨度这么大。。我发四再也不用 --force 参数了 Σ(っ °Д °;)っ
+* 请安装3.0.2及以上版本, version1.0.0 ~ 3.0.1 经测试存在 bug (>_<) 请已经 install 的盆友们更新一下吧
 
 ```
 $ npm install foldcontent-zhihu@">=3.0.2" --save
@@ -20,7 +19,7 @@ $ npm install foldcontent-zhihu@">=3.0.2" --save
 
 ## Usage
 
-* 注意本模块正常使用需要先安装 jquery , 请认真看如下配置哦 ๑•̀⌄•́๑
+* 注意本模块正常使用需要先安装 jquery
 
 ### 方法一: webpack 模块加载  
 
