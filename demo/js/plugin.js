@@ -1,6 +1,3 @@
-/**
-* Created by luyilin on 16/12/5.
-*/
 ;(function ($, window, document, undefined) {
     //定义 FoldContent 的构造函数
     var FoldContent = function (ele,opt) {

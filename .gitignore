@@ -1,4 +1,4 @@
-.idea
+.idea/
 *__gen.go
 *__ignore.go
 *.swp

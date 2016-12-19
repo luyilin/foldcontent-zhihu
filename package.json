@@ -13,12 +13,12 @@
   },
   "keywords": [
     "fold",
-    "content",
     "button",
     "zhihu"
   ],
   "author": "yilin",
   "license": "MIT",
+  "homepage": "https://github.com/luyilin/foldcontent-zhihu#readme",
   "bugs": {
     "url": "https://github.com/luyilin/foldcontent-zhihu/issues"
   },
@@ -35,6 +35,5 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-  },
-  "homepage": "https://github.com/luyilin/foldcontent-zhihu#readme"
+  }
 }

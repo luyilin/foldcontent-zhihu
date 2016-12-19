@@ -1,124 +1,137 @@
 require('./style.css');
-;(function (window, document, undefined) {
-    //定义 FoldContent 的构造函数
-    var FoldContent = function (ele,opt) {
-        this.$element = ele;
-        this.defaults = {
-            'btnBg': '#eff6fa',
-            'btnColor': '#0c5897',
-            'fixBtnBg': '#81baeb',
-            'fixBtnColor': '#fff',
-            'fontSize': '12px',
-            'padding': '5px',
-            'initialText': '展开',
-            'fixText': '收起',
-            'bottom': '10px',
-            'right': '20px',
-            'lineHeight': '1'
-        };
-        this.options = $.extend({}, this.defaults, opt)
-    };
-    //定义方法
-    FoldContent.prototype = {
-        config: function () {
-            this.$element.text(this.options.initialText);
-            this.$element.css({
-                'color': this.options.btnColor,
-                'fontSize': this.options.fontSize,
-                'backgroundColor': this.options.btnBg,
-                'position': 'absolute',
-                'borderRadius': '5px',
-                'padding':  this.options.padding,
-                'bottom': this.options.bottom,
-                'right': this.options.right,
-                'lineHeight': this.options.lineHeight
-            });
-            return this;
-        },
-        fontContentFunction: function () {
-            var fixBtnColor = this.options.fixBtnColor,
-                fixBtnBg = this.options.fixBtnBg,
-                btnColor = this.options.btnColor,
-                btnBg = this.options.btnBg,
-                btnPadding = Number($('.unfold').css('padding').replace('px', '')),
-                btnFontSize = Number($('.unfold').css('font-size').replace('px', '')),
-                panelWidth = Number($('.foldcontent-panel').css('width').replace('px','')),
-                panelPaddingBtm = Number($('.foldcontent-panel').css('padding-Bottom').replace('px', '')),
-                btnRight = Number((this.options.right).replace('px', '')),
-                initialText = this.options.initialText,
-                fixText = this.options.fixText;
-            var btnBottom = panelPaddingBtm + btnPadding * 2 + btnFontSize;
-            var doc = $(document);
-            var win = $(window);
-            // 多次使用, 缓存起来
-            function changeStyle(i) {
-                i.css({
-                    'right': '20px',
-                    'color': btnColor,
-                    'backgroundColor': btnBg,
-                    'position': 'absolute'
-                });
+(() => {
+    class foldcontent {
+        constructor(option) {
+            const defaultOption = {
+                container: document.getElementsByClassName('foldcontent-panel'),
+                btnBg: '#eff6fa',
+                btnColor: '#0c5897',
+                fixBtnBg: '#81baeb',
+                fixBtnColor: '#fff',
+                fontSize: '12px',
+                padding: '5px',
+                initialText: '展开',
+                fixText: '收起',
+                bottom: '10px',
+                right: '20px',
+                lineHeight: '1'
+            };
+            for(var defauleKey in defaultOption) {
+                if(defaultOption.hasOwnProperty(defauleKey) && !option.hasOwnProperty(defauleKey)) {
+                    option[defauleKey] = defaultOption[defauleKey];
+                }
             }
-            function changeToFix(i) {
-                i.css({
-                    'color': fixBtnColor,
-                    'backgroundColor': fixBtnBg,
-                    'position': 'fixed'
-                });
-            }
-            doc.on('click', '.unfold', function () {
-                var unfold = $(this);
-                if (unfold.text() !== fixText) {
-                    unfold.text(fixText).siblings('.part-content').hide().siblings('.all-content').show();
-                    var panel = unfold.parent();
-                    var panelScroll = panel.offset().top + panel.height();
-                    var scrollHeight = doc.scrollTop() + win.height();
-                    var right = (win.width() - panelWidth) / 2 + btnRight > btnRight ?
-                    (win.width() - panelWidth) / 2 + btnRight : btnRight;
-                    if (scrollHeight - panelScroll < btnBottom) {
-                        unfold.css({
-                            'right': right
-                        });
-                        changeToFix(unfold);
-                    }
-                    var cb = {
-                        onscroll: function() {
-                            var panelScroll = panel.offset().top + panel.height();
-                            var scrollHeight = doc.scrollTop() + win.height();
-                            var right = (win.width() - panelWidth) / 2 + btnRight > btnRight ?
-                            (win.width() - panelWidth) / 2 + btnRight : btnRight;
-                            if (scrollHeight - panelScroll < btnBottom &&
-                                panel.offset().top - scrollHeight < -90 && unfold.text() !== initialText) {
-                                unfold.css({
-                                    'right': right
-                                });
-                                changeToFix(unfold);
-                            } else {
-                                changeStyle(unfold);
-                            }
-                            win.off("scroll", cb.onscroll);
-                            setTimeout(function() {
-                                win.on("scroll", cb.onscroll);
-                            }, 50);
-                        }
-                    };
-                    win.on("scroll", cb.onscroll);
-                    } else {
-                        var fold = $(this);
-                        changeStyle(fold);
-                        fold.text(initialText).siblings('.part-content').show()
-                            .siblings('.all-content').hide();
-                    }
-            });
-            return this;
+            this.container = option.container;
+            this.init(option);
         }
-    };
-    //在插件中使用 FoldContent 对象
-    $.fn.foldContentPlugin = function (options) {
-        //创建 FoldContent 的实体
-        var foldContent = new FoldContent(this, options);
-        //调用其方法
-        foldContent.config();
-        foldContent.fontContentFunction();
+
+        init(option) {
+            let doc = document,
+                win = window,
+                fold = doc.getElementsByClassName('unfold'),
+                btnRight = parseInt(option.right),
+                initialText = option.initialText,
+                fixText = option.fixText;
+
+            let html = `<div class="unfold" style="background-color: ${option.btnBg}; color: ${option.btnColor}; font-size: ${parseInt(option.fontSize) + 'px'};
+ line-height: ${option.lineHeight}; right: ${option.right};bottom: ${option.bottom}; padding: ${option.padding};">${option.initialText}</div>`;
+            Array.from(this.container).forEach(function (i) {
+                i.innerHTML += html;
+            });
+
+            for(let i = 0; i < fold.length; i++){
+                fold[i].addEventListener('click', (e) => {
+                    let target = e.target,
+                        part = doc.getElementsByClassName('part-content')[i],
+                        all = doc.getElementsByClassName('all-content')[i],
+                        btnBottom = parseInt(target.style.padding);
+                    if(target.innerHTML !== fixText) {
+                        target.innerHTML = fixText;
+                        this.toggle(part);
+                        this.toggle(all);
+                        let panel = target.parentNode,
+                            panelWidth = parseInt(window.getComputedStyle(panel,null).getPropertyValue('width')),
+                            h = win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight || 0,
+                            w = win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth || 0,
+                            s = win.pageXOffset || doc.body.scrollTop || doc.documentElement.scrollTop || 0;
+                        h = h + s;
+                        let t = panel.offsetTop,
+                            p = panel.offsetParent;
+                        while (p !== null) {
+                            t += p.offsetTop;
+                            p = p.offsetParent;
+                        }
+                        t += panel.offsetHeight;
+                        console.log(panel,panelWidth)
+                        let right = (w - panelWidth) / 2 + btnRight > btnRight ?
+                        (w - panelWidth) / 2 + btnRight : btnRight;
+                        if (h - t < btnBottom) {
+                            target.style.right = right + 'px';
+                            this.changeFix(target, option);
+                        }
+                        var cb = {
+                            onscroll: () => {
+                                let h = win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight || 0,
+                                    w = win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth || 0,
+                                    s = win.pageXOffset || doc.body.scrollTop || doc.documentElement.scrollTop || 0;
+                                h = h + s;
+                                let t = panel.offsetTop,
+                                    p = panel.offsetParent;
+                                while (p !== null) {
+                                    t += p.offsetTop;
+                                    p = p.offsetParent;
+                                }
+                                let th = t + panel.offsetHeight,
+                                    right = (w - panelWidth) / 2 + btnRight > btnRight ?
+                                    (w - panelWidth) / 2 + btnRight : btnRight;
+                                console.log(th, h, btnBottom, h, t, right);
+                                if (th - h > btnBottom && h - t > 90 && target.innerHTML !== initialText) {
+                                    target.style.right = right + 'px';
+                                    this.changeFix(target, option);
+                                } else {
+                                    this.changeStyle(target, option);
+                                }
+                                win.removeEventListener("scroll", cb.onscroll, false);
+                                setTimeout(() => {
+                                    win.addEventListener("scroll", cb.onscroll);
+                                }, 50);
+                            }
+                        };
+                        win.addEventListener('scroll', cb.onscroll, false);
+                    } else {
+                        this.changeStyle(target, option);
+                        target.innerHTML = initialText;
+                        this.toggle(part);
+                        this.toggle(all);
+                    }
+                });
+            }
+        }
+        toggle(i) {
+            if (i.style.display !== 'none') {
+                i.style.display = 'none'
+            } else {
+                i.style.display = 'block'
+            }
+        }
+        changeStyle(i, option) {
+            let style = i.style;
+            style.right = option.right;
+            style.color = option.btnColor;
+            style.backgroundColor = option.btnBg;
+            style.position = 'absolute';
+        }
+        changeFix(i, option) {
+            let style = i.style;
+            style.color = option.fixBtnColor;
+            style.backgroundColor = option.fixBtnBg;
+            style.position = 'fixed';
+        }
     }
-})(window, document);
+
+    if( typeof module !== "undefined" && typeof module.exports !== "undefined" ){
+        module.exports = foldcontent;
+    } else{
+        window.foldContent = foldcontent;
+    }
+})();
