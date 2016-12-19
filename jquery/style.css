@@ -1,0 +1,14 @@
+.foldcontent-panel {
+    box-sizing: border-box;
+    position: relative;
+    width: 700px;
+	margin: 20px auto;
+	padding: 30px;
+	color: #666;
+	line-height: 2.5;
+	border: 1px solid #eee;
+	box-shadow: 5px 6px 5px #ccc;
+}
+.all-content {
+	display: none;
+}

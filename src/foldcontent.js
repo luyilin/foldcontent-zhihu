@@ -16,7 +16,7 @@ require('./style.css');
                 right: '20px',
                 lineHeight: '1'
             };
-            for(var defauleKey in defaultOption) {
+            for(let defauleKey in defaultOption) {
                 if(defaultOption.hasOwnProperty(defauleKey) && !option.hasOwnProperty(defauleKey)) {
                     option[defauleKey] = defaultOption[defauleKey];
                 }
@@ -62,14 +62,13 @@ require('./style.css');
                             p = p.offsetParent;
                         }
                         t += panel.offsetHeight;
-                        console.log(panel,panelWidth)
                         let right = (w - panelWidth) / 2 + btnRight > btnRight ?
                         (w - panelWidth) / 2 + btnRight : btnRight;
                         if (h - t < btnBottom) {
                             target.style.right = right + 'px';
                             this.changeFix(target, option);
                         }
-                        var cb = {
+                        let cb = {
                             onscroll: () => {
                                 let h = win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight || 0,
                                     w = win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth || 0,
@@ -84,7 +83,6 @@ require('./style.css');
                                 let th = t + panel.offsetHeight,
                                     right = (w - panelWidth) / 2 + btnRight > btnRight ?
                                     (w - panelWidth) / 2 + btnRight : btnRight;
-                                console.log(th, h, btnBottom, h, t, right);
                                 if (th - h > btnBottom && h - t > 90 && target.innerHTML !== initialText) {
                                     target.style.right = right + 'px';
                                     this.changeFix(target, option);

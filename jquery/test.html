@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Demo</title>
+    <title>usage</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="foldcontent-panel">
@@ -23,6 +24,7 @@
             <p>那是我的专座。在这个不断变化的世界里，这是不变的一点。假设我的生命用一个建立在四维直角坐标系里的方程来表示的话，
                 这个座位从我坐上那一刻开始就成为了(0,0,0,0)。</p>
         </div>
+        <div class="unfold"></div>
     </div>
     <div class="foldcontent-panel">
         <div class="part-content">In the winter that seat is close enough to the radiator to remain warm and yet
@@ -42,21 +44,19 @@
             <p>那是我的专座。在这个不断变化的世界里，这是不变的一点。假设我的生命用一个建立在四维直角坐标系里的方程来表示的话，
                 这个座位从我坐上那一刻开始就成为了(0,0,0,0)。</p>
         </div>
+        <div class="unfold"></div>
     </div>
-    <script src="../dist/foldcontent.min.js"></script>
+    <script src="../demo/js/01-jquery-1.11.3.min.js"></script>
+    <script src="foldcontent.jquery.js"></script>
+
     <script>
-        var foldContentDemo = new foldcontent({
-            'btnBg': '#eff6fa',
-            'btnColor': '#0c5897',
-            'fixBtnBg': '#81baeb',
-            'fixBtnColor': '#fff',
-            'fontSize': '12px',
-            'padding': '5px',
-            'initialText': '展开',
-            'fixText': '收起',
-            'bottom': '10px',
-            'right': '20px',
-            'lineHeight': '1'
+        // usage
+        $(function () {
+            $('.unfold').foldContentPlugin({
+                'btnBg': 'lightpink',
+                'btnColor': '#fff',
+                'paddingTop': '2px'
+            });
         });
     </script>
 </body>
