@@ -8,10 +8,7 @@
 
 src/ 目录下是原生 js 写法🌰
 
-
-main:
-
-dist/foldcontent.min.js
+main: dist/foldcontent.min.js
 
 
 ## Install
@@ -25,11 +22,14 @@ $ npm install foldcontent-zhihu@">=3.0.6" --save
 
 ## Usage
 
+
 ### 方法一: 引用原生 js 写法
+
 
 #### 方法一: Work with module bundler
 
 ##### HTML
+
 ```HTML
 <div class="foldcontent-panel">
     <div class="part-content"><!--此处是部分内容--></div>
@@ -40,7 +40,7 @@ $ npm install foldcontent-zhihu@">=3.0.6" --save
 
 ##### JS
 
-```JS
+```
 var foldcontent = require('foldcontent-zhihu');
 var foldcontent_demo = new foldcontent({
         'btnBg': '#eff6fa',
