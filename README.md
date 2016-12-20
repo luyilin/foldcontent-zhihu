@@ -10,7 +10,7 @@ src/ 目录下是原生 js 写法🌰
 
 jquery/ 目录下是 jquery 写法🌰
 
-分别引用:
+main:
 
 dist/foldcontent.min.js
 

@@ -1,6 +1,6 @@
 ;(function (window, document, undefined) {
     //定义 FoldContent 的构造函数
-    var FoldContent = function (ele,opt) {
+    var foldcontent_jquery = function (ele,opt) {
         this.$element = ele;
         this.defaults = {
             'btnBg': '#eff6fa',
@@ -18,7 +18,7 @@
         this.options = $.extend({}, this.defaults, opt)
     };
     //定义方法
-    FoldContent.prototype = {
+    foldcontent_jquery.prototype = {
         config: function () {
             this.$element.text(this.options.initialText);
             this.$element.css({
@@ -115,9 +115,9 @@
     //在插件中使用 FoldContent 对象
     $.fn.foldContentPlugin = function (options) {
         //创建 FoldContent 的实体
-        var foldContent = new FoldContent(this, options);
+        var foldcontent_j = new foldcontent_jquery(this, options);
         //调用其方法
-        foldContent.config();
-        foldContent.fontContentFunction();
+        foldcontent_j.config();
+        foldcontent_j.fontContentFunction();
     }
 })(window, document);
