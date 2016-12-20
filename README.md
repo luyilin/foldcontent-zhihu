@@ -1,6 +1,6 @@
 # foldcontent-zhihu
 
-> 用原生 js && jquery 实现知乎收起答案功能
+> 用原生 js 实现知乎收起答案功能
 
 > 具体实现可以看一下这篇[文章](https://segmentfault.com/a/1190000007503399) ٩(ˊᗜˋ*)و
 
@@ -8,13 +8,11 @@
 
 src/ 目录下是原生 js 写法🌰
 
-jquery/ 目录下是 jquery 写法🌰
 
 main:
 
 dist/foldcontent.min.js
 
-dist/foldcontent_jquery.min.js
 
 ## Install
 
@@ -80,70 +78,7 @@ var foldcontent_demo = new foldcontent({
 });
 ```
 
-### 方法二: 引用 jquery 写法 
 
-#### 方法一: script 标签引入 dist/目录下的 foldcontent_jquery.min.js 文件
-
-##### HTML
-
-```HTML
-<div class="foldcontent-panel">
-    <div class="part-content"><!--此处是部分内容--></div>
-    <div class="all-content"><!--此处是全部内容--></div>
-</div>
-<!-- ... -->
-<script src="../demo/js/01-jquery-1.11.3.min.js"></script>
-<script src="foldcontent_jquery.min.js"></script>
-```
-
-##### JS
-
-```JS
-$('.unfold').foldContentPlugin({
-                'btnBg': 'lightpink',
-                'btnColor': '#fff',
-                'paddingTop': '2px'
-            });
-```
-
-#### 方法二: webpack 加载
-
-##### HTML
-
-```HTML
-<div class="foldcontent-panel">
-    <div class="part-content"><!--此处是部分内容--></div>
-    <div class="all-content"><!--此处是全部内容--></div>
-</div>
-<!-- ... -->
-<script src="../demo/js/01-jquery-1.11.3.min.js"></script>
-<script src="foldcontent_jquery.min.js"></script>
-```
-
-##### js
-```
-require('foldcontent-zhihu');
-$(function () {
-    $('.unfold').foldContentPlugin({
-    // ...
-    });
-});
-```
-
-###### webpack
-
-```
-// webpack 全局加载 jquery 的一种方法
- resolve: {         
-    alias: {             
-        jquery: path.resolve(js_path, 'lib/01-jquery-1.11.3.min.js')         
-} },
- plugins: [          
-    new webpack.ProvidePlugin({             
-        $: 'jquery' // 将jquery暴露给所有模块，不用显式require('jquery')；只要模块的代码中出现了$，webpack就会自动将jQuery注入。         
-    })
-]
-```
 #### Options
 
 ```JS
