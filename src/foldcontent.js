@@ -55,7 +55,7 @@ require('./style.css');
                             h = win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight || 0,
                             w = doc.documentElement.getBoundingClientRect().width || 0,
                             // jquery width() 方法, 不包含滚动条宽度 vs document.body.clientWidth == document.body.offsetWidth  window.innerWidth)
-                            s = win.pageXOffset || doc.body.scrollTop || doc.documentElement.scrollTop || 0;
+                            s = win.pageYOffset || doc.body.scrollTop || doc.documentElement.scrollTop || 0;
                         h = h + s;
                         let t = panel.offsetTop,
                             p = panel.offsetParent;
