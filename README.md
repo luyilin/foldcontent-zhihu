@@ -22,13 +22,9 @@ $ npm install foldcontent-zhihu@">=3.0.6" --save
 
 ## Usage
 
+### 方法一: Work with module bundler
 
-### 方法一: 引用原生 js 写法
-
-
-#### 方法一: Work with module bundler
-
-##### HTML
+#### HTML
 
 ```HTML
 <div class="foldcontent-panel">
@@ -38,7 +34,7 @@ $ npm install foldcontent-zhihu@">=3.0.6" --save
 <!-- ... -->
 ```
 
-##### JS
+### JS
 
 ```
 var foldcontent = require('foldcontent-zhihu');
@@ -57,9 +53,9 @@ var foldcontent_demo = new foldcontent({
 });
 ```
 
-#### 方法二: 直接通过 script 标签引入 dist/目录下的 foldcontent.min.js 文件
+### 方法二: 直接通过 script 标签引入 dist/目录下的 foldcontent.min.js 文件
 
-##### HTML
+#### HTML
 
 ```HTML
 <div class="foldcontent-panel">
@@ -70,7 +66,7 @@ var foldcontent_demo = new foldcontent({
 <script src="foldcontent.min.js"></script>
 ```
 
-##### JS
+#### JS
 
 ```JS
 var foldcontent_demo = new foldcontent({
@@ -79,7 +75,7 @@ var foldcontent_demo = new foldcontent({
 ```
 
 
-#### Options
+## Options
 
 ```JS
 {
