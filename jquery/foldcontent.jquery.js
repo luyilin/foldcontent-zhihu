@@ -1,5 +1,5 @@
 ;(function (window, document, undefined) {
-    //定义 FoldContent 的构造函数
+    //定义 foldcontent_jquery 的构造函数
     var foldcontent_jquery = function (ele,opt) {
         this.$element = ele;
         this.defaults = {
@@ -112,7 +112,7 @@
             return this;
         }
     };
-    //在插件中使用 FoldContent 对象
+    //在插件中使用 foldcontent_jquery 对象
     $.fn.foldContentPlugin = function (options) {
         //创建 FoldContent 的实体
         var foldcontent_j = new foldcontent_jquery(this, options);

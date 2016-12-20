@@ -21,9 +21,7 @@ dist/foldcontent_jquery.min.js
 * 请安装3.0.5及以上版本, version1.0.0 ~ 3.0.1 经测试存在 bug (>_<) 请已经 install 的盆友们更新一下吧
 
 ```
-$ npm install foldcontent-zhihu@">=3.0.5" --save
-// 引用 jquery 插件请下载 v3.0.4 版本
-$ npm install foldcontent-zhihu@3.0.4 --save
+$ npm install foldcontent-zhihu@">=3.0.6" --save
 ```
 
 
