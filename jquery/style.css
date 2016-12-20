@@ -1,5 +1,7 @@
-.foldcontent-panel {
+body {
     box-sizing: border-box;
+}
+.foldcontent-panel {
     position: relative;
     width: 700px;
 	margin: 20px auto;

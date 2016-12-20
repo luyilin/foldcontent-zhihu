@@ -8,7 +8,7 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
 
 module.exports = {
     devtool: 'source-map',
-    entry: './src/foldcontent.jquery.js',
+    entry: './src/foldcontent.js',
     output: {
         path: BUILD_PATH,
         filename: 'foldcontent.min.js',
@@ -20,6 +20,7 @@ module.exports = {
 
     devServer: {
         publicPath: "/dist/",
+        port: 8081
     },
 
     module: {

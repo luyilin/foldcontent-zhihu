@@ -28,6 +28,7 @@ require('./style.css');
         init(option) {
             let doc = document,
                 win = window,
+                bod = doc.getElementsByTagName('body')[0],
                 fold = doc.getElementsByClassName('unfold'),
                 btnRight = parseInt(option.right),
                 initialText = option.initialText,
@@ -52,7 +53,8 @@ require('./style.css');
                         let panel = target.parentNode,
                             panelWidth = parseInt(window.getComputedStyle(panel,null).getPropertyValue('width')),
                             h = win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight || 0,
-                            w = win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth || 0,
+                            w = doc.documentElement.getBoundingClientRect().width || 0,
+                            // jquery width() 方法, 不包含滚动条宽度 vs document.body.clientWidth == document.body.offsetWidth  window.innerWidth)
                             s = win.pageXOffset || doc.body.scrollTop || doc.documentElement.scrollTop || 0;
                         h = h + s;
                         let t = panel.offsetTop,
@@ -61,7 +63,7 @@ require('./style.css');
                             t += p.offsetTop;
                             p = p.offsetParent;
                         }
-                        t += panel.offsetHeight;
+                        t += panel.clientHeight;
                         let right = (w - panelWidth) / 2 + btnRight > btnRight ?
                         (w - panelWidth) / 2 + btnRight : btnRight;
                         if (h - t < btnBottom) {
@@ -71,8 +73,8 @@ require('./style.css');
                         let cb = {
                             onscroll: () => {
                                 let h = win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight || 0,
-                                    w = win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth || 0,
-                                    s = win.pageXOffset || doc.body.scrollTop || doc.documentElement.scrollTop || 0;
+                                    w = doc.documentElement.getBoundingClientRect().width || 0,
+                                    s = win.pageYOffset || doc.body.scrollTop || doc.documentElement.scrollTop || 0;
                                 h = h + s;
                                 let t = panel.offsetTop,
                                     p = panel.offsetParent;
@@ -80,22 +82,22 @@ require('./style.css');
                                     t += p.offsetTop;
                                     p = p.offsetParent;
                                 }
-                                let th = t + panel.offsetHeight,
+                                let th = t + panel.clientHeight,
                                     right = (w - panelWidth) / 2 + btnRight > btnRight ?
                                     (w - panelWidth) / 2 + btnRight : btnRight;
-                                if (th - h > btnBottom && h - t > 90 && target.innerHTML !== initialText) {
+                                if (h - th < btnBottom && h - t > 90 && target.innerHTML !== initialText) {
                                     target.style.right = right + 'px';
                                     this.changeFix(target, option);
                                 } else {
                                     this.changeStyle(target, option);
                                 }
-                                win.removeEventListener("scroll", cb.onscroll, false);
+                                doc.removeEventListener("scroll", cb.onscroll, false);
                                 setTimeout(() => {
-                                    win.addEventListener("scroll", cb.onscroll);
+                                    doc.addEventListener("scroll", cb.onscroll);
                                 }, 50);
                             }
                         };
-                        win.addEventListener('scroll', cb.onscroll, false);
+                        doc.addEventListener('scroll', cb.onscroll, false);
                     } else {
                         this.changeStyle(target, option);
                         target.innerHTML = initialText;

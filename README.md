@@ -7,6 +7,7 @@
 ## Introduction
 
 src/ 目录下是原生 js 写法🌰
+
 jquery/ 目录下是 jquery 写法🌰
 
 ## Install
@@ -15,6 +16,8 @@ jquery/ 目录下是 jquery 写法🌰
 
 ```
 $ npm install foldcontent-zhihu@">=3.0.5" --save
+// 引用 jquery 插件请下载 v3.0.4 版本
+$ npm install foldcontent-zhihu@3.0.4 --save
 ```
 
 
@@ -36,7 +39,7 @@ $ npm install foldcontent-zhihu@">=3.0.5" --save
 ##### JS
 
 ```JS
-var foldcontent = require('foldcontent');
+var foldcontent = require('foldcontent-zhihu');
 var foldcontent_demo = new foldcontent({
         'btnBg': '#eff6fa',
         'btnColor': '#0c5897',
@@ -100,6 +103,18 @@ $('.unfold').foldContentPlugin({
 ```
 
 ##### 方法二: webpack 加载
+###### js
+```
+require('foldcontent-zhihu');
+$(function () {
+    $('.unfold').foldContentPlugin({
+    // ...
+    });
+});
+```
+
+###### webpack
+
 ```
 // webpack 全局加载 jquery 的一种方法
  resolve: {         
