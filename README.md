@@ -10,6 +10,12 @@ src/ 目录下是原生 js 写法🌰
 
 jquery/ 目录下是 jquery 写法🌰
 
+分别引用:
+
+dist/foldcontent.min.js
+
+dist/foldcontent_jquery.min.js
+
 ## Install
 
 * 请安装3.0.5及以上版本, version1.0.0 ~ 3.0.1 经测试存在 bug (>_<) 请已经 install 的盆友们更新一下吧
@@ -78,8 +84,9 @@ var foldcontent_demo = new foldcontent({
 
 ### 方法二: 引用 jquery 写法 
 
+#### 方法一: script 标签引入 dist/目录下的 foldcontent_jquery.min.js 文件
 
-#### HTML
+##### HTML
 
 ```HTML
 <div class="foldcontent-panel">
@@ -88,11 +95,10 @@ var foldcontent_demo = new foldcontent({
 </div>
 <!-- ... -->
 <script src="../demo/js/01-jquery-1.11.3.min.js"></script>
-<script src="foldcontent.min.js"></script>
+<script src="foldcontent_jquery.min.js"></script>
 ```
 
-#### JS
-##### 方法一: script 标签引入 jquery/目录下的 foldcontent.jquery.js 文件
+##### JS
 
 ```JS
 $('.unfold').foldContentPlugin({
@@ -102,8 +108,21 @@ $('.unfold').foldContentPlugin({
             });
 ```
 
-##### 方法二: webpack 加载
-###### js
+#### 方法二: webpack 加载
+
+##### HTML
+
+```HTML
+<div class="foldcontent-panel">
+    <div class="part-content"><!--此处是部分内容--></div>
+    <div class="all-content"><!--此处是全部内容--></div>
+</div>
+<!-- ... -->
+<script src="../demo/js/01-jquery-1.11.3.min.js"></script>
+<script src="foldcontent_jquery.min.js"></script>
+```
+
+##### js
 ```
 require('foldcontent-zhihu');
 $(function () {

@@ -39,14 +39,14 @@
                 fixBtnBg = this.options.fixBtnBg,
                 btnColor = this.options.btnColor,
                 btnBg = this.options.btnBg,
-                btnPadding = Number($('.unfold').css('padding').replace('px', '')),
-                btnFontSize = Number($('.unfold').css('font-size').replace('px', '')),
-                panelWidth = Number($('.foldcontent-panel').css('width').replace('px','')),
-                panelPaddingBtm = Number($('.foldcontent-panel').css('padding-Bottom').replace('px', '')),
-                btnRight = Number((this.options.right).replace('px', '')),
+                btnPadding = parseInt($('.unfold').css('padding')) || 0,
+                btnFontSize = parseInt($('.unfold').css('font-size')) || 0,
+                panelWidth = parseInt($('.foldcontent-panel').css('width')) || 0,
+                panelPaddingBtm = parseInt($('.foldcontent-panel').css('padding-Bottom')) || 0,
+                btnRight = parseInt((this.options.right)),
                 initialText = this.options.initialText,
                 fixText = this.options.fixText;
-            var btnBottom = panelPaddingBtm + btnPadding * 2 + btnFontSize;
+            var btnBottom = panelPaddingBtm + btnPadding * 2 + btnFontSize + parseInt(this.options.bottom) || 0;
             var doc = $(document);
             var win = $(window);
             // 多次使用, 缓存起来

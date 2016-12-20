@@ -28,7 +28,6 @@ require('./style.css');
         init(option) {
             let doc = document,
                 win = window,
-                bod = doc.getElementsByTagName('body')[0],
                 fold = doc.getElementsByClassName('unfold'),
                 btnRight = parseInt(option.right),
                 initialText = option.initialText,
@@ -48,8 +47,7 @@ require('./style.css');
                         btnBottom = parseInt(target.style.padding);
                     if(target.innerHTML !== fixText) {
                         target.innerHTML = fixText;
-                        this.toggle(part);
-                        this.toggle(all);
+                        this.toggle(part, all);
                         let panel = target.parentNode,
                             panelWidth = parseInt(window.getComputedStyle(panel,null).getPropertyValue('width')),
                             h = win.innerHeight || doc.documentElement.clientHeight || doc.body.clientHeight || 0,
@@ -101,17 +99,19 @@ require('./style.css');
                     } else {
                         this.changeStyle(target, option);
                         target.innerHTML = initialText;
-                        this.toggle(part);
-                        this.toggle(all);
+                        this.toggle(part, all);
                     }
                 });
             }
         }
-        toggle(i) {
-            if (i.style.display !== 'none') {
-                i.style.display = 'none'
-            } else {
-                i.style.display = 'block'
+        // ES6 布丁参数, 停止使用 arguments
+        toggle(...list) {
+            for(let i of list) {
+                if (i.style.display !== 'none') {
+                    i.style.display = 'none'
+                } else {
+                    i.style.display = 'block'
+                }
             }
         }
         changeStyle(i, option) {

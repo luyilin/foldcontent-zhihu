@@ -8,10 +8,12 @@ var BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
 
 module.exports = {
     devtool: 'source-map',
-    entry: './src/foldcontent.js',
+    entry: {
+        foldcontent: './src/foldcontent.js',
+        foldcontent_jquery: './jquery/foldcontent.jquery.js'},
     output: {
         path: BUILD_PATH,
-        filename: 'foldcontent.min.js',
+        filename: '[name].min.js',
         library: 'foldcontent',
         libraryTarget: 'umd',
         umdNamedDefine: true
