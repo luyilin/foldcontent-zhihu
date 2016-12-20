@@ -7,6 +7,7 @@
 ## Introduction
 
 src/ 目录下是原生 js 写法🌰
+
 jquery/ 目录下是 jquery 写法🌰
 
 ## Install
@@ -22,7 +23,7 @@ $ npm install foldcontent-zhihu@">=3.0.5" --save
 
 ### 方法一: 引用原生 js 写法
 
-#### Work with module bundler
+#### 方法一: Work with module bundler
 
 ##### HTML
 ```HTML
@@ -52,7 +53,7 @@ var foldcontent_demo = new foldcontent({
 });
 ```
 
-#### 直接通过 script 标签引入 dist/目录下的 foldcontent.min.js 文件
+#### 方法二: 直接通过 script 标签引入 dist/目录下的 foldcontent.min.js 文件
 
 ##### HTML
 
