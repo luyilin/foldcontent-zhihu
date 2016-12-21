@@ -35,6 +35,5 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "babel-core": "^6.21.0"
   }
 }
