@@ -1,5 +1,8 @@
 # foldcontent-zhihu
 
+[![Build Status](https://travis-ci.org/luyilin/foldcontent-zhihu.png)](https://travis-ci.org/luyilin/foldcontent-zhihu)
+
+
 > 用原生 js 实现知乎收起答案功能
 
 > 具体实现可以看一下这篇[文章](https://segmentfault.com/a/1190000007503399) ٩(ˊᗜˋ*)و
