@@ -9,6 +9,8 @@
 
 ## Introduction
 
+[Demo](https://luyilin.github.io/foldcontent-zhihu/src/demo.html)
+
 src/ 目录下是原生 js 写法🌰
 
 main: dist/foldcontent.min.js
