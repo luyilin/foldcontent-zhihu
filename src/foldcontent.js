@@ -65,6 +65,7 @@ require('./style.css');
                         let right = (w - panelWidth) / 2 + btnRight > btnRight ?
                         (w - panelWidth) / 2 + btnRight : btnRight;
                         if (h - t < btnBottom) {
+                            console.log(doc.querySelector('fix-btn'))
                             target.style.right = right + 'px';
                             this.changeFix(target, option);
                         }
@@ -126,6 +127,7 @@ require('./style.css');
             style.color = option.fixBtnColor;
             style.backgroundColor = option.fixBtnBg;
             style.position = 'fixed';
+            i.classList.add('fix-btn');
         }
     }
 
