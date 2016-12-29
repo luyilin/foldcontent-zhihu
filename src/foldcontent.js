@@ -65,7 +65,10 @@ require('./style.css');
                         let right = (w - panelWidth) / 2 + btnRight > btnRight ?
                         (w - panelWidth) / 2 + btnRight : btnRight;
                         if (h - t < btnBottom) {
-                            console.log(doc.querySelector('fix-btn'))
+                            let fixBtn = doc.querySelector('.fix-btn');
+                            if (fixBtn) {
+                                this.changeStyle(fixBtn, option);
+                            }
                             target.style.right = right + 'px';
                             this.changeFix(target, option);
                         }
@@ -121,6 +124,7 @@ require('./style.css');
             style.color = option.btnColor;
             style.backgroundColor = option.btnBg;
             style.position = 'absolute';
+            i.classList.remove('fix-btn');
         }
         changeFix(i, option) {
             let style = i.style;
@@ -137,3 +141,4 @@ require('./style.css');
         window.foldContent = foldcontent;
     }
 })();
+// todo: 收起一个 div 时判断下一个 div 是否显示固定定位按钮; 添加按钮在固定定位、绝对定位状态切换时的动画效果
