@@ -111,7 +111,7 @@ require('./style.css');
         // ES6 布丁参数, 停止使用 arguments
         toggle(...list) {
             for(let i of list) {
-                if (i.style.display !== 'none') {
+                if (window.getComputedStyle(i,null).getPropertyValue('display') !== 'none') {
                     i.style.display = 'none'
                 } else {
                     i.style.display = 'block'

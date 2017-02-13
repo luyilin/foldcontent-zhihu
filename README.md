@@ -103,8 +103,9 @@ var foldcontent_demo = new foldcontent({
 ```
 $ npm install
 $ npm start
-```
 
+http://localhost:8081/src/demo.html
+```
 
 ## LICENSE
 
