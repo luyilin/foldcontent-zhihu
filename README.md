@@ -18,10 +18,10 @@ main: dist/foldcontent.min.js
 
 ## Install
 
-* 请安装3.0.6及以上版本, version1.0.0 ~ 3.0.1 经测试存在 bug (>_<) 请已经 install 的盆友们更新一下吧
+* 请安装3.0.11及以上版本, version1.0.0 ~ 3.0.10 经测试存在 bug (>_<) 请已经 install 的盆友们更新一下吧
 
 ```
-$ npm install foldcontent-zhihu@">=3.0.6" --save
+$ npm install foldcontent-zhihu@">=3.0.11" --save
 ```
 
 
