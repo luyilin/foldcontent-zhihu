@@ -12,7 +12,7 @@ require('./style.css');
                 padding: '5px',
                 initialText: '展开',
                 fixText: '收起',
-                bottom: '10px',
+                bottom: '15px',
                 right: '20px',
                 lineHeight: '1'
             };
@@ -63,7 +63,9 @@ require('./style.css');
                         }
                         t += panel.clientHeight;
                         let right = (w - panelWidth) / 2 + btnRight > btnRight ?
-                        (w - panelWidth) / 2 + btnRight : btnRight;
+                        (w - panelWidth) / 2 + btnRight : btnRight,
+                            allContent = document.getElementsByClassName('all-content')[i],
+                            allShow = allContent.style.display;
                         if (h - t < btnBottom) {
                             let fixBtn = doc.querySelector('.fix-btn');
                             if (fixBtn) {
@@ -71,6 +73,9 @@ require('./style.css');
                             }
                             target.style.right = right + 'px';
                             this.changeFix(target, option);
+                            if (allShow === 'block') {
+                                target.classList.add('slide-btn')
+                            }
                         }
                         let cb = {
                             onscroll: () => {
@@ -86,12 +91,19 @@ require('./style.css');
                                 }
                                 let th = t + panel.clientHeight,
                                     right = (w - panelWidth) / 2 + btnRight > btnRight ?
-                                    (w - panelWidth) / 2 + btnRight : btnRight;
-                                if (h - th < btnBottom && h - t > 90 && target.innerHTML !== initialText) {
+                                    (w - panelWidth) / 2 + btnRight : btnRight,
+                                    allContent = document.getElementsByClassName('all-content')[i],
+                                    allShow = allContent.style.display;
+
+                                if (th - h > 0 && h - t > 90 && target.innerHTML !== initialText) {
                                     target.style.right = right + 'px';
                                     this.changeFix(target, option);
+                                    if (allShow === 'block') {
+                                        target.classList.remove('slide-btn')
+                                    }
                                 } else {
                                     this.changeStyle(target, option);
+                                    // target.classList.add('slide-btn')
                                 }
                                 doc.removeEventListener("scroll", cb.onscroll, false);
                                 setTimeout(() => {
