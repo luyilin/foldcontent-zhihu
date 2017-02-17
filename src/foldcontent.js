@@ -103,7 +103,6 @@ require('./style.css');
                                     }
                                 } else {
                                     this.changeStyle(target, option);
-                                    // target.classList.add('slide-btn')
                                 }
                                 doc.removeEventListener("scroll", cb.onscroll, false);
                                 setTimeout(() => {
