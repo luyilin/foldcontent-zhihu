@@ -1,7 +1,7 @@
 # foldcontent-zhihu
 
 [![Build Status](https://img.shields.io/travis/luyilin/foldcontent-zhihu.svg?style=flat)](https://travis-ci.org/luyilin/foldcontent-zhihu)
-[![npm](https://img.shields.io/npm/dt/foldcontent-zhihu.svg)](https://www.npmjs.com/package/foldcontent-zhihu)
+[![npm](https://img.shields.io/npm/dm/foldcontent-zhihu.svg)](https://www.npmjs.com/package/foldcontent-zhihu)
 
 > 用原生 js 实现知乎收起答案功能
 
